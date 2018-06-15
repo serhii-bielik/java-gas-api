@@ -43,9 +43,6 @@ public class ControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        /*ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(object);*/
-        
         List<Journal> records = facade.findAll();   
         
         ObjectMapper mapper = new ObjectMapper();
@@ -53,12 +50,6 @@ public class ControllerServlet extends HttpServlet {
         
         response.setContentType("application/json");
         response.getWriter().write(json);
-        
-        /*try {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }*/
     }
 
 }
